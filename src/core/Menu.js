@@ -18,22 +18,22 @@ const Menu = ({ history }) => (
                 <Link className="nav-link" to="/" style={curTab(history, '/')}>Home</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/cart')}>Cart</Link>
+                <Link className="nav-link" to="/cart" style={curTab(history, '/cart')}>Cart</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/user/dashboard')}>Dashboard</Link>
+                <Link className="nav-link" to="/user/dashboard" style={curTab(history, '/user/dashboard')}>Dashboard</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/admin/dashboard')}>A. Dashboard</Link>
+                <Link className="nav-link" to="/admin/dashboard" style={curTab(history, '/admin/dashboard')}>A. Dashboard</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/signin')}>Sign In</Link>
+                <Link className="nav-link" to="/signin" style={curTab(history, '/signin')}>Sign In</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/signup')}>Sign Up</Link>
+                <Link className="nav-link" to="/signup" style={curTab(history, '/signup')}>Sign Up</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/" style={curTab(history, '/signout')}>Sign Up</Link>
+                <Link className="nav-link" to="/signout" style={curTab(history, '/signout')}>Sign Out</Link>
             </li>
         </ul>
     </nav>

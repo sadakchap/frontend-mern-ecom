@@ -9,13 +9,13 @@ const Base = ({ title="My Title", description=undefined, className="bg-dark text
             <div className="container-fluid" style={{ minHeight: 'calc(100vh - 80px)'}}>
                 <div className="jumbotron bg-dark text-white text-center mb-0">
                     <h2 className="display-4">{title}</h2>
-                    <p className="lead">{description}</p>
+                    <p className="lead small">{description}</p>
                 </div>
                 <div className={className}>{children}</div>
             </div>
 
-            <footer className="footer bg-dark mt-auto py-3 d-flex justify-space-between">
-                <div className="container-fluid bg-dark text-light">
+            <footer className="footer mt-5 py-5 d-flex justify-space-between" style={{ backgroundColor: '#262626'}}>
+                <div className="container-fluid text-light">
                     <p className="small m-0 d-inline">If you got any questions feel free to reack out</p>
                 </div>
                 <div className="container text-right">
