@@ -1,11 +1,12 @@
 import React from 'react';
-
+import Menu from './Menu';
 
 // Use PropTypes and define default prop values differently
 const Base = ({ title="My Title", description=undefined, className="bg-dark text-white p-4", children}) => {
     return (
         <div className="">
-            <div className="container-fluid" style={{ minHeight: '100vh'}}>
+            <Menu />
+            <div className="container-fluid" style={{ minHeight: 'calc(100vh - 80px)'}}>
                 <div className="jumbotron bg-dark text-white text-center mb-0">
                     <h2 className="display-4">{title}</h2>
                     <p className="lead">{description}</p>
