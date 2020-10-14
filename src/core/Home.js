@@ -1,13 +1,14 @@
 import React from 'react';
 import '../styles.css'
 import { API } from '../backend';
+import Base from './Base';
 
 const Home = () => {
     console.log(`API IS ${API}`);
     return (
-        <div>
-            <h1>Hello Frontend</h1>
-        </div>
+        <Base title="Home Page">
+            <h1>Hello frontend</h1>
+        </Base>
     )
 };
 
