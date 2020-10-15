@@ -6,7 +6,7 @@ const Signin = () => {
     return(
         <Base title="Welcome back" description="We are glad to have you back!">
             <div className="row">
-                <div className="col-md-6 col-sm-12 offset-3 px-5 py-5 text-left" style={formOuterStyle}>
+                <div className="col-md-6 col-sm-12  offset-md-3 offset-sm-0 px-5 py-5 text-left" style={formOuterStyle}>
                     <form>
                         <div class="form-group">
                             <label>Email address</label>
