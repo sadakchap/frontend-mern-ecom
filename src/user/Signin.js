@@ -16,7 +16,7 @@ const Signin = () => {
     const handleChange = name => e => setValues({ ...values, [name]: e.target.value });
     
     const { email, password, error, loading, didRedirect } = values;
-    const user = isAuthenticated();
+    const { user } = isAuthenticated();
 
     const onSubmit = e => {
         e.preventDefault();
@@ -39,9 +39,9 @@ const Signin = () => {
         // TODO: redirect correctly
         if(didRedirect){
             if(user && user.role === 1){
-                return <p>redirect to admin dashboard</p>
+                return <Redirect to="/admin/dashboard" />
             }else{
-                return <p>redirect to user dashboard</p>
+                return <Redirect to="/user/dashboard" />
             }
         }
         if(isAuthenticated()){

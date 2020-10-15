@@ -57,7 +57,7 @@ export const isAuthenticated = () => {
     
     const jwt = localStorage.getItem('jwt');
     // console.log(typeof token); // --> string type
-    if(jwt !== "undefined"){
+    if(jwt !== "undefined" && jwt !== null){
         return JSON.parse(jwt);
     }else{
         return false;
