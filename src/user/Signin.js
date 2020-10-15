@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signin, isAuthenticated, authenticate } from '../auth/helper';
 import Base from '../core/Base';
 

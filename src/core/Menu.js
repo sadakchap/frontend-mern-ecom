@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { isAuthenticated, signout } from '../auth/helper';
 
 const curTab = (history, path) => {
     if(history.location.pathname === path){
@@ -32,9 +33,16 @@ const Menu = ({ history }) => (
             <li className="nav-item">
                 <Link className="nav-link" to="/signup" style={curTab(history, '/signup')}>Sign Up</Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/signout" style={curTab(history, '/signout')}>Sign Out</Link>
-            </li>
+
+            {isAuthenticated() && (
+                <li className="nav-item">
+                    <span className="nav-link text-warning" onClick={() => {
+                        signout(() => {
+                            history.push('/signin')
+                        });
+                    }}>Sign Out</span>
+                </li>    
+            )}
         </ul>
     </nav>
 );
