@@ -21,13 +21,10 @@ const Menu = ({ history }) => (
             <li className="nav-item">
                 <Link className="nav-link" to="/cart" style={curTab(history, '/cart')}>Cart</Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/user/dashboard" style={curTab(history, '/user/dashboard')}>Dashboard</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/admin/dashboard" style={curTab(history, '/admin/dashboard')}>A. Dashboard</Link>
-            </li>
-
+            
+            
+            
+                    
 
             {!isAuthenticated() && (
                 <Fragment>
@@ -41,13 +38,23 @@ const Menu = ({ history }) => (
             )}
 
             {isAuthenticated() && (
-                <li className="nav-item">
-                    <span className="nav-link text-warning" onClick={() => {
-                        signout(() => {
-                            history.push('/signin')
-                        });
-                    }}>Sign Out</span>
-                </li>    
+                <Fragment>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/user/dashboard" style={curTab(history, '/user/dashboard')}>Dashboard</Link>
+                    </li>
+                    { isAuthenticated().user.role === 1 ? (
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/admin/dashboard" style={curTab(history, '/admin/dashboard')}>A. Dashboard</Link>
+                        </li>
+                    ) : "" }
+                    <li className="nav-item">
+                        <span className="nav-link text-warning" onClick={() => {
+                            signout(() => {
+                                history.push('/signin')
+                            });
+                        }}>Sign Out</span>
+                    </li>    
+                </Fragment>
             )}
         </ul>
     </nav>
