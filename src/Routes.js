@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import AddCategory from './admin/AddCategory';
 import AdminRoute from './auth/helper/AdminRoute';
 import PrivateRoute from './auth/helper/PrivateRoute';
 import Home from './core/Home';
@@ -18,6 +19,7 @@ const Routes = () => {
                 <Route path="/signin" exact component={Signin} />
                 <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} />
                 <AdminRoute path="/admin/dashboard" exact component={AdminDashBoard} />
+                <AdminRoute path="/admin/create/category" exact component={AddCategory} />
             </Switch>
         </BrowserRouter>
     )
