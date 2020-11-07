@@ -21,7 +21,10 @@ const AdminDashBoard = () => {
                         <Link to="/admin/create/products" className="nav-link text-success">Create Products</Link>
                     </li>
                     <li className="list-group-item">
-                        <Link to="/admin/products" className="nav-link text-success">Manage Products</Link>
+                        <Link to="/admin/manage/categories" className="nav-link text-success">Manage Categories</Link>
+                    </li>
+                    <li className="list-group-item">
+                        <Link to="/admin/manage/products" className="nav-link text-success">Manage Products</Link>
                     </li>
                     <li className="list-group-item">
                         <Link to="/admin/orders" className="nav-link text-success">Manage Orders</Link>
