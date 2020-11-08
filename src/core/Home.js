@@ -28,7 +28,7 @@ const Home = () => {
         <Base title="Home Page">
             <div className="row">
                 {products && products.map((prod, idx) => (
-                    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key="idx">
+                    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
                         <Card product={prod} />
                     </div>
                 ))}
