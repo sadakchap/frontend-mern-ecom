@@ -109,7 +109,7 @@ const AddProduct = () => {
             </div>
             <div className="form-row">
                 <div className="form-group col-lg-4">
-                    <input type="number" onChange={handleChange("price")} placeholder="Price" className="form-control" value={price} placeholder="Price" />
+                    <input type="number" onChange={handleChange("price")} placeholder="Price" className="form-control" value={price} />
                 </div>
                 <div className="form-group col-lg-4">
                     <select onChange={handleChange("category")} className="form-control" placeholder="Category">
@@ -120,7 +120,7 @@ const AddProduct = () => {
                     </select>
                 </div>
                 <div className="form-group col-lg-4">
-                    <input type="number" onChange={handleChange("stock")} placeholder="Quantity" className="form-control" value={stock} placeholder="Quantity" />
+                    <input type="number" onChange={handleChange("stock")} placeholder="Quantity" className="form-control" value={stock} />
                 </div>
             </div>
             <button type="submit" disabled={loading} onClick={handleSubmit} className="btn btn-outline-success">Create Product</button>

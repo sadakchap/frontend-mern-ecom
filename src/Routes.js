@@ -4,6 +4,7 @@ import AddCategory from './admin/AddCategory';
 import AddProduct from './admin/AddProduct';
 import ManageCategories from './admin/ManageCategories';
 import ManageProducts from './admin/ManageProducts';
+import UpdateProduct from './admin/UpdateProduct';
 import AdminRoute from './auth/helper/AdminRoute';
 import PrivateRoute from './auth/helper/PrivateRoute';
 import Home from './core/Home';
@@ -26,6 +27,7 @@ const Routes = () => {
                 <AdminRoute path="/admin/create/products" exact component={AddProduct} />
                 <AdminRoute path="/admin/manage/products" exact component={ManageProducts} />
                 <AdminRoute path="/admin/manage/categories" exact component={ManageCategories} />
+                <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
             </Switch>
         </BrowserRouter>
     )
