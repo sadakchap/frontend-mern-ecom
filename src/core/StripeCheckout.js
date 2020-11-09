@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
-import { cartEmpty, loadCart } from './helper/cartHelper';
+import { cartEmpty } from './helper/cartHelper';
 import StripeCheckoutButton from 'react-stripe-checkout';
-import { STRIPE_KEY } from '../backend';
+import { API, STRIPE_KEY } from '../backend';
+import { createOrder } from './helper/orderHelper';
 
 
 const StripeCheckout = ({ products, setReload = f => f, reload=undefined }) => {
@@ -16,7 +17,7 @@ const StripeCheckout = ({ products, setReload = f => f, reload=undefined }) => {
     });
 
     const token = isAuthenticated() && isAuthenticated().token;
-    const user = isAuthenticated() && isAuthenticated().user._id;
+    const userId = isAuthenticated() && isAuthenticated().user._id;
      
     const getTotalAmount = () => {
         let amount = 0;
@@ -26,8 +27,37 @@ const StripeCheckout = ({ products, setReload = f => f, reload=undefined }) => {
         return amount;
     }
 
-    const makePayment = token => {
-        console.log(token);
+    const makePayment = _token => {
+        const body = {
+            token: _token, products
+        };
+        const headers = {
+            "Content-Type": "application/json"
+        };
+
+        setData({ ...data, loading: true });
+        return fetch(`${API}/payment/stripe`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body)
+        }).then(res => res.json()).then(result => {
+            console.log(result);
+            const orderData = {
+                products: products,
+                transaction_id: result.id,
+                amount: result.amount
+            }
+
+            createOrder(userId, token, orderData);
+            
+            cartEmpty(() => {
+                setReload(!reload);
+                setData({ ...data, loading: false, success: true });
+            });
+        }).catch(err => {
+            console.log(err);
+            setData({ ...data, loading: false, success: false, error: 'something went wrong!' });
+        })
     }
 
     const showButton = () => (
